@@ -10,17 +10,18 @@
 <% else %>
   <p>Has made <%= pluralize(@user.ratings.count, 'rating')%>, average rating <%= @user.average_rating %></p>
   <h3>ratings</h3>
-<table>
-<tbody>
+  <ul>
   <% @user.ratings.each do |rating| %>
-    <tr>
-      <li><%= rating %> <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' }  %></li>
-    </tr>
+    <li>
+      <%= rating %>
+      <% if @user == current_user %>
+          <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
   <% end %>
-</tbody>
-</table>
+</ul>
 <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %> | 
 <%= link_to 'Back', users_path %>
