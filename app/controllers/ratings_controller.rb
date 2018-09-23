@@ -1,5 +1,4 @@
 class RatingsController < ApplicationController
-    
   # GET /ratings
   # GET /ratings.json
   def index
@@ -21,5 +20,4 @@ class RatingsController < ApplicationController
     rating.delete
     redirect_to ratings_path
   end
-
 end
