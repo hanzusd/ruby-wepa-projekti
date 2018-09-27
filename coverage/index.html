@@ -14,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-27T16:44:54+03:00">2018-09-27T16:44:54+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-27T22:27:48+03:00">2018-09-27T22:27:48+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">61.65%</span></span>
+    (<span class="covered_percent"><span class="red">61.06%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>20</b> files in total.
-    <b>206</b> relevant lines. 
+    <b>208</b> relevant lines. 
     <span class="green"><b>127</b> lines covered</span> and
-    <span class="red"><b>79</b> lines missed </span>
+    <span class="red"><b>81</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -77,7 +77,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>17.4</td>
+        <td>17.6</td>
       </tr>
       
       <tr>
@@ -122,11 +122,11 @@
       
       <tr>
         <td class="strong"><a href="#ad921ea686288b1e1bbfd75ec31bbd467423157b" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">60.61 %</td>
-        <td>75</td>
-        <td>33</td>
+        <td class="red strong">57.14 %</td>
+        <td>78</td>
+        <td>35</td>
         <td>20</td>
-        <td>13</td>
+        <td>15</td>
         <td>0.8</td>
       </tr>
       
@@ -259,7 +259,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">60.0%</span></span>
+    (<span class="covered_percent"><span class="red">59.15%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -270,9 +270,9 @@
   <a name="Controllers"></a>
   <div>
     <b>6</b> files in total.
-    <b>140</b> relevant lines. 
+    <b>142</b> relevant lines. 
     <span class="green"><b>84</b> lines covered</span> and
-    <span class="red"><b>56</b> lines missed </span>
+    <span class="red"><b>58</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -295,7 +295,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>17.4</td>
+        <td>17.6</td>
       </tr>
       
       <tr>
@@ -340,11 +340,11 @@
       
       <tr>
         <td class="strong"><a href="#ad921ea686288b1e1bbfd75ec31bbd467423157b" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">60.61 %</td>
-        <td>75</td>
-        <td>33</td>
+        <td class="red strong">57.14 %</td>
+        <td>78</td>
+        <td>35</td>
         <td>20</td>
-        <td>13</td>
+        <td>15</td>
         <td>0.8</td>
       </tr>
       
@@ -855,8 +855,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="49" data-linenumber="6">
-          <span class="hits">49</span>
+        <li class="covered" data-hits="50" data-linenumber="6">
+          <span class="hits">50</span>
           
           <code class="ruby">    return nil if session[:user_id].nil?</code>
         </li>
@@ -2194,7 +2194,7 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">      redirect_to :back, notice: &quot;Username and/or password mismatch&quot;</code>
+          <code class="ruby">      redirect_to signin_path, notice: &quot;Username and/or password mismatch&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -2253,11 +2253,11 @@
         <div class="source_table" id="ad921ea686288b1e1bbfd75ec31bbd467423157b">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">60.61 %</span> covered</h4>
+    <h4><span class="red">57.14 %</span> covered</h4>
     <div>
-      <b>33</b> relevant lines. 
+      <b>35</b> relevant lines. 
       <span class="green"><b>20</b> lines covered</span> and
-      <span class="red"><b>13</b> lines missed.</span>
+      <span class="red"><b>15</b> lines missed.</span>
     </div>
   </div>
   
@@ -2525,7 +2525,7 @@
         <li class="missed" data-hits="0" data-linenumber="44">
           
           
-          <code class="ruby">      if @user.update(user_params)</code>
+          <code class="ruby">      if user_params[:username].nil? &amp;&amp; @user == current_user &amp;&amp; @user.update(user_params)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="45">
@@ -2603,112 +2603,130 @@
         <li class="missed" data-hits="0" data-linenumber="57">
           
           
-          <code class="ruby">    @user.destroy</code>
+          <code class="ruby">    if @user == current_user</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="58">
           
           
-          <code class="ruby">    respond_to do |format|</code>
+          <code class="ruby">      @user.destroy</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="59">
           
           
-          <code class="ruby">      format.html { redirect_to users_url, notice: &#39;User was successfully destroyed.&#39; }</code>
+          <code class="ruby">      session[:user_id] = nil</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
-          
-          
-          <code class="ruby">      format.json { head :no_content }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="missed" data-hits="0" data-linenumber="61">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="missed" data-hits="0" data-linenumber="62">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      format.html { redirect_to users_url, notice: &#39;User was successfully destroyed.&#39; }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="63">
           
-          <code class="ruby">  private</code>
+          
+          <code class="ruby">      format.json { head :no_content }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby">  # Use callbacks to share common setup or constraints between actions.</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
-          <code class="ruby">  def set_user</code>
+          <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="68">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    @user = User.find(params[:id])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby">  # Never trust parameters from the scary internet, only allow the white list through.</code>
+          <code class="ruby">  # Use callbacks to share common setup or constraints between actions.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
-          <code class="ruby">  def user_params</code>
+          <code class="ruby">  def set_user</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="73">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="8" data-linenumber="71">
+          <span class="hits">8</span>
           
-          <code class="ruby">    params.require(:user).permit(:username, :password, :password_confirmation)</code>
+          <code class="ruby">    @user = User.find(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">  # Never trust parameters from the scary internet, only allow the white list through.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def user_params</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="76">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    params.require(:user).permit(:username, :password, :password_confirmation)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">end</code>
