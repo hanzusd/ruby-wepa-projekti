@@ -70,6 +70,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
 
 
