@@ -52,4 +52,16 @@ describe "Rating" do
     expect(page).to have_content 'iso 3 4'
     expect(page).to have_content 'Karhu 6'
   end
+
+  it "is deleted when user deletes it" do
+    FactoryBot.create(:rating, score: 4, beer:beer1, user:user)
+    FactoryBot.create(:rating, score: 6, beer:beer2, user:user)
+    visit user_path(user)
+
+    expect{
+      find(:xpath, './/a[@href="/ratings/2"]').click()
+    }.to change{Rating.count}.by(-1)
+
+    expect(page).to have_content 'iso 3 4'
+  end
 end
