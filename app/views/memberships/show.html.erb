@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Memberships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beer club</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beer club:</strong>
+  <%= @membership.beer_club_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @membership.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

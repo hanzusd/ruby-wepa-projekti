@@ -5,6 +5,15 @@
 </p>
 
 <p>
+  <% if @user.beer_clubs.any? %>
+    member of 
+    <% @user.beer_clubs.each do |club| %>
+      <li> <%= link_to club.name, club %> </li>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
 <% if @user.ratings.empty? %>
   User has not made any ratings yet!
 <% else %>
