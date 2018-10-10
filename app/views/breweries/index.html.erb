@@ -28,9 +28,7 @@
 </table>
 
 <% if current_user %>
-<%= link_to 'New Brewery', new_brewery_path %>
-</p>
+<%= link_to 'New Brewery', new_brewery_path, class:'btn btn-primary' %>
 <% end %>
-<p>
-<%= link_to 'List of beers', beers_path %>
+<%= link_to 'List of beers', beers_path, class:'btn btn-primary' %>
 </p>
