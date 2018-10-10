@@ -71,11 +71,17 @@
       <%= yield %>
     </div>
     <div class="col-sm-4">
-      <img 
-        src="http://www.cs.helsinki.fi/u/mluukkai/wadror/pint.jpg" 
-        width="200"
-        style="padding-top:30px"
-      >
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="http://www.cs.helsinki.fi/u/mluukkai/wadror/pint.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">RateBeer</h5>
+    <p class="card-text">Find your favourite beers and breweries. Give ratings. Join clubs. Find new places to drink. Enjoy your stay in world of beer!</p>
+      <% if not current_user %>
+        <%= link_to 'Join now!', new_user_path, class:'btn btn-primary' %>
+      <% end %>
+  </div>
+</div>
+ 
     </div>
   </div>
 </div>
