@@ -3,7 +3,10 @@ module RatingAverage
 
   def average_rating
     sum = 0.0;
-    ratings.each{ |rating| sum += rating.score }
-    sum / ratings.count
+    if ratings.empty?
+      return sum
+    end
+      ratings.each{ |rating| sum += rating.score }
+      sum / ratings.count
   end
 end

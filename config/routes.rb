@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
  resources :ratings, only: [:index, :new, :create, :destroy]
 
+ resources :breweries do
+  post 'toggle_activity', on: :member
+ end
+
  resources :places, only: [:index, :show]
  # mikä generoi samat polut kuin seuraavat kaksi
  # get 'places', to:'places#index'

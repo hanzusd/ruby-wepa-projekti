@@ -1,13 +1,44 @@
 <h2>List of ratings</h2>
 
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-4 col-sm-4">
+        <h4>Best beers</h4>
+        <table class="table table-hover">
+          <% @top_beers.each do |beer| %>
+            <tr><th><%= link_to beer.name, beer %></th> <th><%= round beer.average_rating %></th></tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-4 col-sm-4">
+        <h4>Best breweries</h4>
+        <table class="table table-hover">
+        <% @top_breweries.each do |brewery| %>
+            <tr><th><%= link_to brewery.name, brewery %></th> <th><%= round brewery.average_rating %></th></tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-4 col-sm-4">
+        <h4>Best styles</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
 <table class="table table-hover">
   <% @ratings.each do |rating| %>
      <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
   <% end %>
 </table>
 
-<p> Number of ratings: <%= @ratings.count %> </p>
+<h3>Recent ratings</h3>
+<table class="table table-hover">
+  <% @recent_ratings.each do |rating| %>
+     <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+  <% end %>
+</table>
 
 <p>
-<%= link_to 'New Rating', new_rating_path %>
+<%= link_to 'New Rating', new_rating_path, class:"btn btn-primary" %>
 </p>
