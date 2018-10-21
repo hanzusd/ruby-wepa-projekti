@@ -4,8 +4,13 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
+    @breweries = Brewery.all
+
     @active_breweries = Brewery.active
     @retired_breweries = Brewery.retired
+  end
+
+  def list
   end
 
   # GET /breweries/1
