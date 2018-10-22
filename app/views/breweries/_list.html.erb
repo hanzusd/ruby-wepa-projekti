@@ -2,7 +2,9 @@
   <thead>
   <tr>
     <th>Name</th>
-    <th>Year</th>
+    <th>Founded</th>
+    <th># of Beers</th>
+    <th>Active</th>
   </tr>
   </thead>
 
@@ -11,6 +13,8 @@
       <tr>
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
+        <td><%= brewery.beers.count() %> </td>
+        <td><%= brewery.active %> </td>
         <td></td>
       </tr>
   <% end %>
