@@ -1,5 +1,6 @@
 <p id="notice"></p>
 
+<% cache @brewery do %> 
 <h2>
   <%= @brewery.name %>
   <% if not @brewery.active  %>
@@ -13,7 +14,7 @@
   <%= @brewery.year %></i>
 </p>
 <p>
-   Number of beers:
+  Number of beers:
   <%= @brewery.beers.count %>
 </p>
 <p>
@@ -23,12 +24,13 @@
  <% end %>
 </p>
 <p>
-<% if @brewery.ratings.empty? %>
- Brewery's beers have not yet been rated!
-<% else %>
- Brewery's beers have <%= pluralize(@brewery.ratings.count, 'rating')%>, average <%= @brewery.average_rating %>
-<% end %>
+  <% if @brewery.ratings.empty? %>
+    Brewery's beers have not yet been rated!
+  <% else %>
+    Brewery's beers have <%= pluralize(@brewery.ratings.count, 'rating')%>, average <%= @brewery.average_rating %>
+  <% end %>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> 
 <%= link_to 'Back', breweries_path %>
